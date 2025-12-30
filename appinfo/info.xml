@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<info>
+  <id>simplehabittracker</id>
+  <namespace>SimpleHabitTracker</namespace>
+
+  <name>Simple Habit Tracker</name>
+  <summary>Suivez vos petites habitudes quotidiennes en un coup d'oeil.</summary>
+  <description>
+    Une app Nextcloud légère pour cocher vos habitudes du jour
+    et suivre votre régularité sur 7 jours.
+  </description>
+
+  <version>0.1.0</version>
+  <license>agpl</license>
+
+  <author>Quentin Gilleron</author>
+  <website>quentin-gilleron.fr</website>
+
+  <dependencies>
+    <nextcloud min-version="28" max-version="32"/>
+    <php min-version="8.0" max-version="8.4"/>
+  </dependencies>
+
+  <navigations>
+    <navigation>
+      <id>simplehabittracker</id>
+      <name>Simple Habit Tracker</name>
+      <route>simplehabittracker.page.index</route>
+      <icon>img/app.svg</icon>
+      <order>40</order>
+    </navigation>
+  </navigations>
+</info>

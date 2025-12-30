@@ -1,0 +1,356 @@
+:root {
+  --sht-bg: var(--color-background-default, #f5f6f8);
+  --sht-card: var(--color-main-background, #fff);
+  --sht-border: var(--color-border, #d9dde7);
+  --sht-accent: var(--color-primary, #2c8eff);
+  --sht-accent-muted: rgba(44, 142, 255, 0.15);
+  --sht-text-muted: #020305;
+  --sht-viewport-offset: var(--header-height, 50px);
+}
+
+.sht-root {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  height: calc(100vh - var(--sht-viewport-offset));
+  width: 100%;
+  max-width: none;
+}
+
+@supports (height: 100svh) {
+  .sht-root {
+    height: calc(100svh - var(--sht-viewport-offset));
+  }
+}
+
+.sht-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sht-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.sht-header p {
+  margin: 4px 0 0;
+  color: var(--sht-text-muted);
+}
+
+.sht-status {
+  min-height: 24px;
+  font-size: 0.9rem;
+  color: var(--sht-accent);
+}
+
+.sht-status--error {
+  color: var(--color-error, #d93025);
+}
+
+.sht-card {
+  background: var(--sht-card);
+  border: 1px solid var(--sht-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
+.sht-add-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.sht-add-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--sht-border);
+  font-size: 1rem;
+}
+
+.sht-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--sht-text-muted);
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sht-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sht-btn--primary {
+  background: var(--sht-accent);
+  color: #fff;
+}
+
+.sht-btn--primary:hover {
+  opacity: 0.9;
+}
+
+.sht-btn--ghost {
+  border-color: var(--sht-border);
+}
+
+.sht-table-wrapper {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.sht-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sht-table th,
+.sht-table td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--sht-border);
+  vertical-align: middle;
+}
+
+.sht-table th {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--sht-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.sht-name-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text, #1f2328);
+}
+
+.sht-name-btn:hover {
+  color: var(--sht-accent);
+}
+
+.sht-spark {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.sht-spark__day {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--sht-accent-muted);
+}
+
+.sht-spark__day.is-done {
+  background: var(--sht-accent);
+}
+
+.sht-percent {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.sht-mini {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.sht-mini__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sht-mini__label {
+  font-size: 0.65rem;
+  line-height: 1;
+  width: 12px;
+  text-align: center;
+  color: var(--sht-text-muted);
+}
+
+.sht-mini__bar {
+  width: 12px;
+  height: 18px;
+  border-radius: 3px;
+  background: var(--sht-accent-muted);
+}
+
+.sht-mini__bar.is-done {
+  background: var(--sht-accent);
+}
+
+.sht-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--sht-border);
+  border-radius: 4px;
+  background: #fff;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.sht-checkbox::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.sht-checkbox:checked {
+  background: var(--sht-accent);
+  border-color: var(--sht-accent);
+}
+
+.sht-checkbox:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.sht-checkbox:focus-visible {
+  outline: 3px solid var(--sht-accent-muted);
+  outline-offset: 2px;
+}
+
+.sht-checkbox:active {
+  transform: scale(0.96);
+}
+
+.sht-checkbox:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sht-empty {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  color: var(--sht-text-muted);
+  font-style: italic;
+}
+
+body.sht-modal-open {
+  overflow: hidden;
+}
+
+.sht-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1100;
+}
+
+.sht-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.sht-modal__panel {
+  width: min(520px, 100%);
+  max-height: 80vh;
+  overflow: auto;
+  background: var(--sht-card);
+  border: 1px solid var(--sht-border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sht-modal.is-open .sht-modal__panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.sht-modal__title {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+}
+
+.sht-modal__desc {
+  margin: 0 0 16px;
+  color: var(--sht-text-muted);
+}
+
+.sht-modal__input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.sht-modal__label {
+  font-size: 0.9rem;
+  color: var(--sht-text-muted);
+}
+
+.sht-modal__input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--sht-border);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.sht-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 720px) {
+  .sht-root {
+    padding: 16px;
+  }
+
+  .sht-table th:nth-child(4),
+  .sht-table td:nth-child(4) {
+    display: none;
+  }
+}
