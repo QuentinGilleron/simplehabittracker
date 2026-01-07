@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <info>
   <id>simplehabittracker</id>
-  <namespace>SimpleHabitTracker</namespace>
 
   <name>Simple Habit Tracker</name>
   <summary>Suivez vos petites habitudes quotidiennes en un coup d'oeil.</summary>
